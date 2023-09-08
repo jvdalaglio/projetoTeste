@@ -5,7 +5,7 @@ import { Counter } from "../CounterButton/CounterButton";
 import { useLocation } from "react-router-dom";
 
 export type CardProps = {
- idProduct: number;
+ id: number;
  name: string;
  description?: string;
  image: string;
@@ -21,13 +21,13 @@ export function Card(props: CardProps) {
 
  return (
   <CardStyle>
-   <CustomLink to={`/details/${props.idProduct}${search}`}>
+   <CustomLink to={`/details/${props.id}${search}`}>
     <img className="image" src={props.image} alt="" />
    </CustomLink>
    <div className="info">
-    <CustomLink to={`/details/${props.idProduct}${search}`}>
+    <CustomLink to={`/details/${props.id}${search}`}>
      <div className="badge-div">
-     {props.isGlutenFree && <Badge name="badge2" />}
+      {props.isGlutenFree && <Badge name="badge2" />}
       {props.isVegan && <Badge name="badge1" />}
      </div>
      <strong>{props.name}</strong>

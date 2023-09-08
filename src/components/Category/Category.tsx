@@ -3,7 +3,14 @@ import { CategoryHeader, CategoryDiv } from "./Category.style";
 import { Card, CardProps } from "../Card/Card";
 import api from "../../services/api";
 
-const categoryTitle = ["", "Bebidas" , "Entradas", "Saladas", "Hamburgueres", "Sobremesas"]
+const categoryTitle = [
+ "",
+ "Bebidas",
+ "Entradas",
+ "Saladas",
+ "Hamburgueres",
+ "Sobremesas",
+];
 
 type CategoryProps = {
  id: number;
@@ -24,19 +31,15 @@ export function Category(props: CategoryProps) {
  return (
   <CategoryDiv id={categoryTitle[props.id]}>
    <CategoryHeader>
-    <span>
-      {categoryTitle[props.id]}
-    </span>
+    <span>{categoryTitle[props.id]}</span>
    </CategoryHeader>
    {productList
-    .filter((product) =>
-     props.id === product.category
-    )
+    .filter((product) => props.id === product.category)
     .map((product, index) => {
      return (
       <Card
        key={index}
-       idProduct={product.idProduct}
+       id={product.id}
        name={product.name}
        isGlutenFree={product.isGlutenFree}
        isVegan={product.isVegan}
